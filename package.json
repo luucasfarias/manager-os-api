@@ -1,0 +1,17 @@
+{
+  "name": "ls",
+  "version": "1.0.0",
+  "description": "this project aims to manage the customer's inventory and work orders.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "manager"
+  ],
+  "author": "lucas farias\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[3~F\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[3~\u001b[3~\u001b[\u001b[\u001b[2~\u001b[3~\u001b[3~\u001b[3~\u001b[CLu\u001b[2~cas F\u001b[2~\u001b[2~arias",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
