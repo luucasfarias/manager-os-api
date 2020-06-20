@@ -86,14 +86,34 @@ router.put("/", (req, res, next) => {
         req.body.manufacturer,
         req.body.description,
         req.body.esn,
-        req.body.id
+        req.body.id,
       ],
       (error, result, field) => {
         if (error) {
           return res.status(500).send({ error: error, response: null });
         }
-        res.status(201).send({
+        res.status(202).send({
           message: "update product success",
+        });
+      }
+    );
+  });
+});
+
+router.delete("/", (req, res, next) => {
+  mysql.getConnection((error, conn) => {
+    if (error) {
+      return res.status(500).send({ error: error });
+    }
+    conn.query(
+      `DELETE FROM product WHERE id = ?`,
+      [req.body.id],
+      (error, result, field) => {
+        if (error) {
+          return res.status(500).send({ error: error, response: null });
+        }
+        res.status(202).send({
+          message: "delete product success",
         });
       }
     );
