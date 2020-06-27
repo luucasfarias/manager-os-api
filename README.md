@@ -7,3 +7,13 @@
     "MYSQL_PORT": 3306
   }
 }
+
+{
+  "env": {
+    "MYSQL_USER": "root",
+    "MYSQL_PASSWORD": "",
+    "MYSQL_DATABASE": "inventory",
+    "MYSQL_HOST": "localhost",
+    "MYSQL_PORT": 3306,
+  }
+}
