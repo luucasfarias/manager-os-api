@@ -2,12 +2,14 @@ const express = require("express");
 const router = express.Router();
 const mysql = require("../mysql").pool;
 
+const NAME_TABLE = 'product';
+
 router.get("/", (req, res, next) => {
   mysql.getConnection((error, conn) => {
     if (error) {
       return res.status(500).send({ error: error });
     }
-    conn.query("SELECT * FROM product;", (error, result, fields) => {
+    conn.query(`SELECT * FROM ${NAME_TABLE};`, (error, result, fields) => {
       if (error) {
         return res.status(500).send({ error: error, response: null });
       }
@@ -24,7 +26,7 @@ router.get("/:id", (req, res, next) => {
       return res.status(500).send({ error: error });
     }
     conn.query(
-      "SELECT * FROM product WHERE id = ?;",
+      `SELECT * FROM ${NAME_TABLE} WHERE id = ?;`,
       [req.params.id],
       (error, result, fields) => {
         if (error) {
@@ -44,7 +46,7 @@ router.post("/", (req, res, next) => {
       return res.status(500).send({ error: error });
     }
     conn.query(
-      `INSERT INTO product(name, brand, pattern, amount, manufacturer, description, esn) 
+      `INSERT INTO ${NAME_TABLE}(name, brand, pattern, amount, manufacturer, description, esn) 
         VALUES(?, ?, ?, ?, ?, ?, ?)`,
       [
         req.body.name,
@@ -75,7 +77,7 @@ router.put("/", (req, res, next) => {
       return res.status(500).send({ error: error });
     }
     conn.query(
-      `UPDATE product
+      `UPDATE ${NAME_TABLE}
         SET name = ?, brand = ?, pattern  = ?, amount = ?, manufacturer = ?, description = ?, esn = ?
       WHERE id = ?`,
       [
@@ -106,7 +108,7 @@ router.delete("/", (req, res, next) => {
       return res.status(500).send({ error: error });
     }
     conn.query(
-      `DELETE FROM product WHERE id = ?`,
+      `DELETE FROM ${NAME_TABLE} WHERE id = ?`,
       [req.body.id],
       (error, result, field) => {
         if (error) {
