@@ -1,9 +1,0 @@
-{
-  "env": {
-    "MYSQL_USER": "mrxtbtvslwiqcmok",
-    "MYSQL_PASSWORD": "f6hhnyi7q1xxckbj",
-    "MYSQL_DATABASE": "bjv0d3nbqc4if3yl",
-    "MYSQL_HOST": "wvulqmhjj9tbtc1w.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-    "MYSQL_PORT": 3306
-  }
-}
