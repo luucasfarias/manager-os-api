@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 
 // *! Declareted routers
 const routerProducts = require("./routes/products");
+const routerServiceOrders = require("./routes/service-order");
 
 // *! Morgan check logs
 app.use(morgan("dev"));
@@ -28,6 +29,7 @@ app.use((req, res, next) => {
 
 // *! Name routers
 app.use("/product", routerProducts);
+app.use("/service-order", routerServiceOrders);
 
 // ? Notfound router
 app.use((req, res, next) => {
